@@ -17,7 +17,8 @@ const leaderboardTable = document.querySelector('.leaderboard-table');
 //Localstorage inizialization
 localStorage.setItem('moves', 0);
 localStorage.setItem('stars', 0); 
-localStorage.setItem('time', 0);
+localStorage.setItem('minutes', 0);
+localStorage.setItem('seconds', 0);
 
 //Objects of the deck
 const objects = ['fa-diamond', 'fa-diamond', 
@@ -44,7 +45,7 @@ function shuffle(array) {
     return array;
 }
 
-//Keylister, press R to reload the game
+//Keylistener, press R to reload the game
 document.addEventListener('keypress', (event) => {
   const toggleStatus = document.querySelector('.modal__background');
   var keyName = event.key;
@@ -63,6 +64,9 @@ document.querySelector('.modal__cancel').addEventListener('click', () => {
 })
 document.querySelector('.modal__retry').addEventListener('click', () => {
 	resetGame();
+	toggleModal();
+})
+document.querySelector('.modal__close').addEventListener('click', () => {
 	toggleModal();
 })
 
@@ -274,7 +278,7 @@ function winningGame(){
 }
 //Save to local storage
 function saveScores(){
-	let score = {moves:moves, time:time, stars:starCount};
+	let score = {moves:moves, minutes:minutes, seconds:seconds, stars:starCount};
 	leaderboard.push(score);
 	localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
 }
@@ -287,14 +291,14 @@ function saveScores(){
   firstRow.innerHTML = `
   <td>Rating</td>
   <td>Moves</td>
-  <td>Time (seconds)</td>`;
+  <td>Time</td>`;
   scoreFragment.appendChild(firstRow);
   for (score of leaderboard) {
     let newRow = document.createElement('tr');
     newRow.innerHTML = `
     <td>${score.stars} <i class="fa fa-star"></i></td>
     <td>${score.moves}</td>
-    <td>${score.time}</td>`;
+    <td>${score.minutes}:${score.seconds}</td>`;
     scoreFragment.appendChild(newRow);
   }
   leaderboardTable.appendChild(scoreFragment);
