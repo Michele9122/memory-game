@@ -8,67 +8,7 @@ html {
     box-sizing: inherit;
 }
 
-.modal__background {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	background: rgba (0,0,0,0.438);
-}
 
-.modal__body {
-	position: relative;
-	width: 400px;
-	top: 50%;
-	left: 50%;
-	background: #ffffff;
-	transform: translate(-50%, -50%);
-}
-
-.modal__heading {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem;
-	border-bottom: 1px solid gray;
-}
-
-.modal__close {
-	font-weight: bold;
-	font-size: 2rem;
-}
-
-.modal__stats {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 1rem;
-	border-bottom: 1px solid gray;
-}
-
-.modal__buttons {
-	display:flex;
-	justify-content: space-around;
-	padding: 1rem;
-}
-
-.modal__button{
-	width: 60px;
-	height: 30px;
-}
-
-.modal__hide {
-	display: none;
-}
-
-.star__hide {
-	display: none;
-}
-
-.star__show {
-	color: #ffd700;
-}
 
 html,
 body {
@@ -159,12 +99,110 @@ h1 {
 
 .deck .card.win {
     cursor: default;
-    background: #02ccba;
+    background: #e0be05;
     font-size: 33px;
 	animation: swing ease-in-out 1s infinite alternate;
     transform-origin: center -20px;
 	float:left;
 }
+
+/* Style for the star */
+.star__hide {
+	display: none;
+}
+
+.star__show {
+	color: #ffd700;
+}
+
+/* Style for the modal  */
+.modal__background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.54);
+}
+
+.modal__body {
+	position: relative;
+	width: 400px;
+	top: 50%;
+	left: 50%;
+	background: #ffffff;
+	transform: translate(-50%, -50%);
+}
+
+.modal__heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+}
+
+.modal__close {
+	font-weight: bold;
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+.modal__stats {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 10px;
+}
+
+.modal__buttons {
+	display: flex;
+	justify-content: space-around;
+	padding: 10px;
+}
+
+.modal__button{
+	width: 60px;
+	height: 30px;
+	cursor: pointer;
+}
+
+.modal__hide {
+	display: none;
+}
+
+/* Style for the leaderboard */
+.leaderboard {
+  width: 100%;
+  text-align: center;
+}
+
+.leaderboard-table {
+  margin: auto;
+  padding: 15px 0;
+}
+
+.score td {
+  padding: 0 5px;
+  text-align: left;
+}
+
+.score td:first-of-type {
+  font-weight: bold;
+}
+
+.leaderboard {
+  display: none;
+}
+
+.leaderboard-table td {
+  padding: 0 10px;
+  text-align: left;
+}
+
+.leaderboard-table tr:nth-of-type(1) {
+  font-weight: bold;
+}
+
 /* Swing winning animation  by Christopher Mlalazi https://codepen.io/ChrisMla/pen/jWMLWY */ 
 @keyframes swing {
     0% { transform: rotate(3deg); }
@@ -239,6 +277,9 @@ h1 {
 }
 
 
+
+/* Mediaquery */
+
 @media only screen and (max-width: 700px) {
 .deck {
     max-width: 300px;
@@ -253,34 +294,3 @@ h1 {
   }
 }
 
-.leaderboard {
-  width: 100%;
-  text-align: center;
-}
-
-.leaderboard-table {
-  margin: auto;
-  padding: 15px 0;
-}
-
-.score td {
-  padding: 0 5px;
-  text-align: left;
-}
-
-.score td:first-of-type {
-  font-weight: bold;
-}
-
-.leaderboard {
-  display: none;
-}
-
-.leaderboard-table td {
-  padding: 0 10px;
-  text-align: left;
-}
-
-.leaderboard-table tr:nth-of-type(1) {
-  font-weight: bold;
-}
