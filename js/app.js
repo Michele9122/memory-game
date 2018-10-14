@@ -19,8 +19,6 @@ localStorage.setItem('moves', 0);
 localStorage.setItem('stars', 0); 
 localStorage.setItem('time', 0);
 
-
-
 //Objects of the deck
 const objects = ['fa-diamond', 'fa-diamond', 
 				'fa-paper-plane-o', 'fa-paper-plane-o', 
@@ -140,7 +138,6 @@ function checkForMatch() {
 	}
 }
 
-
 //Check if the click contains a class called card and it's not already matched. Also it works only if the array is less than two
 function clickValid(clickTarget) {
 	return (
@@ -205,8 +202,7 @@ function toggleModal() {
 	modal.classList.toggle('modal__hide');
 }
 
-
-//write stats into modal
+//Write stats into modal
 function writeModalStats() {
 	const timeStat = document.querySelector('.modal__time');
 	const clockTime = document.querySelector('.clock').innerHTML;
@@ -220,7 +216,7 @@ function writeModalStats() {
 	timeStat.innerHTML = `Time = ${clockTime}`;
 }
 
-//get the number of stars
+//Get the number of stars
 function getStars() {
 	stars = document.querySelectorAll('.stars i');
 	for (star of stars) {
@@ -249,8 +245,6 @@ function resetGame() {
 	resetCards(); 
 	flippedCard = []; 
 } 
-
-
 
 //Game over
 function youWin(){
@@ -284,9 +278,8 @@ function saveScores(){
 	leaderboard.push(score);
 	localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
 }
- 
 
- 
+ //Show the leaderboard
  function showLeaderboard(){
   leaderboardTable.innerHTML = '';
   var scoreFragment = document.createDocumentFragment();
@@ -305,7 +298,6 @@ function saveScores(){
     scoreFragment.appendChild(newRow);
   }
   leaderboardTable.appendChild(scoreFragment);
-
   leaderboardPanel.style.display = 'block';
 }
  
